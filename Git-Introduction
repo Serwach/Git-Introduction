@@ -1,0 +1,55 @@
+Git is a revision control system, a tool to manage your source code history.
+
+GitHub is a hosting service for Git repositories.
+
+So they are not the same thing: Git is the tool, GitHub is the service for projects that use Git.
+
+https://git-scm.com/download/linux
+sudo apt-get install git
+sudo add-apt-repository ppa:git-core/ppa
+sudo apt update; apt install git
+
+first part at repository alrealy made
+
+ls
+ls -a
+rm -r .git
+ls -a
+git init
+git status
+git add -A (the same as git add .)
+git status
+git commit -m "comment"
+git status
+git log (to show our commit, now put it on github)
+https://github.com/new > all default > create
+change from ssh to https, because its more simple (I've got all ssh)
+git remote add origin https://github.com/Serwach/Git-Introduction.git (dodaj zdalnie pochodzenie)
+git remote (wyswietla origin)
+git push -u origin master
+
+second part how to remove files from remote repository
+git status
+find . -name "*.pyc" -print
+find . -name "*.pyc" -delete
+git status
+git add -A
+git status
+git commit -m "Removed .pyc files"
+git log (all history of commits)
+git push (error)
+git remote
+git branch
+git push --force //or -f (you can do force - just push, whatever happens, ignoring all remote changes)
+its dangerous when you're a part of project, but working alone its fine
+
+third part how to create and use a .gitignore file
+vim .gitignore
+*.pyc in file, save and quit
+cd .git
+you can also write accounts/ and ignore it (take a look to social-network)
+db.sqlite3
+git rm --cached db.sqlite3 (removing from repository, but not locally)
+git add .
+git commit -m "Added .gitignore file, removed database"
+git push
